@@ -10,6 +10,40 @@ N_IMAGES = 10
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+# main shape generators with parameters to be changed
+def random_circle():
+    '''
+    generate random circle parameters (position and radius)
+    '''
+    radius = random.randint(8, 20) # radius
+    x = random.randint(radius, IMAGE_SIZE[0] - radius)
+    y = random.randint(radius, IMAGE_SIZE[1] - radius) # center coordinates
+
+    return {
+        "center": (x, y),
+        "radius": radius,
+        "color": (0, 0, 0) # change color
+    }
+
+def random_triangle():
+    '''
+    generate sample triangle
+    '''
+    cx = random.randint(30, 100)
+    cy = random.randint(30, 100) # center coordinates
+    size = random.randint(12, 25) # size
+
+    vertices = [
+        (cx, cy - size),
+        (cx - size, cy + size),
+        (cx + size, cy + size)
+    ]
+
+    return {
+        "vertices": vertices,
+        "color": (255, 0, 0) # color
+    }
+
 def draw_circle(draw, center, radius, color):
     '''
     helper function to draw a circle
@@ -22,39 +56,6 @@ def draw_circle(draw, center, radius, color):
 
 def draw_triangle(draw, vertices, color):
     draw.polygon(vertices, fill=color)
-
-def random_circle():
-    '''
-    generate a sample circle based on random or editable parameters
-    '''
-    radius = random.randint(8, 20)
-    x = random.randint(radius, IMAGE_SIZE[0] - radius)
-    y = random.randint(radius, IMAGE_SIZE[1] - radius)
-
-    return {
-        "center": (x, y),
-        "radius": radius,
-        "color": (0, 0, 0)
-    }
-
-def random_triangle():
-    '''
-    generate sample triange
-    '''
-    cx = random.randint(30, 100)
-    cy = random.randint(30, 100)
-    size = random.randint(12, 25)
-
-    vertices = [
-        (cx, cy - size),
-        (cx - size, cy + size),
-        (cx + size, cy + size)
-    ]
-
-    return {
-        "vertices": vertices,
-        "color": (255, 0, 0)
-    }
 
 def generate_image(idx):
     '''
