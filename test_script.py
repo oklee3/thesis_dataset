@@ -6,21 +6,14 @@ import os, sys
 IMAGE_SIZE = (128, 128)
 BACKGROUND_COLOR = (255, 255, 255)
 
-OVERLAP_DIR = "data/overlap"
-OVERLAP_BW_DIR = "data/overlap_bw"
-CIRCLE_DIR = "data/circle"
-CIRCLE_BW_DIR = "data/circle_bw"
+OVERLAP_DIR = "data/overlap_triange"
+OVERLAP_BW_DIR = "data/overlap_triangle_bw"
+CIRCLE_DIR = "data/overlap_circle"
+CIRCLE_BW_DIR = "data/overlap_circle_bw"
 NO_OVERLAP_DIR = "data/no_overlap"
 NO_OVERLAP_BW_DIR = "data/no_overlap_bw"
 
-N_IMAGES = 10
-
-os.makedirs(OVERLAP_DIR, exist_ok=True)
-os.makedirs(OVERLAP_BW_DIR, exist_ok=True)
-os.makedirs(CIRCLE_DIR, exist_ok=True)
-os.makedirs(CIRCLE_BW_DIR, exist_ok=True)
-os.makedirs(NO_OVERLAP_DIR, exist_ok=True)
-os.makedirs(NO_OVERLAP_BW_DIR, exist_ok=True)
+N_IMAGES = 250
 
 # generate a random shape
 def random_circle():
@@ -295,26 +288,32 @@ if __name__ == "__main__":
     mode = sys.argv[1]
 
     if mode == "overlap_triangle":
+        os.makedirs(OVERLAP_DIR, exist_ok=True)
         for i in range(N_IMAGES):
             generate_overlapping_triangle(i)
 
     if mode == "overlap_triangle_bw":
+        os.makedirs(OVERLAP_BW_DIR, exist_ok=True)
         for i in range(N_IMAGES):
             generate_overlapping_triangle_bw(i)
 
     if mode == "overlap_circle":
+        os.makedirs(CIRCLE_DIR, exist_ok=True)
         for i in range(N_IMAGES):
             generate_overlapping_circle(i)
 
     if mode == "overlap_circle_bw":
+        os.makedirs(CIRCLE_BW_DIR, exist_ok=True)
         for i in range(N_IMAGES):
             generate_overlapping_circle_bw(i)
 
     if mode == "no_overlap":
+        os.makedirs(NO_OVERLAP_DIR, exist_ok=True)
         for i in range(N_IMAGES):
             generate_not_overlapping(i)
 
     if mode == "no_overlap_bw":
+        os.makedirs(NO_OVERLAP_BW_DIR, exist_ok=True)
         for i in range(N_IMAGES):
             generate_not_overlapping_bw(i)
     
