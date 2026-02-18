@@ -1,13 +1,26 @@
 # thesis_dataset
 
-**possible categories**
-- above vs below 
-- size (randomly generate sizes)
-- could categorize sizes within certain ranges
-- black and white dataset (mirror of other stuff)
+- train a diffusion model on relations between shapes
+- (shape1, shape2, color1, color2, relation)
+- ex. (circle, triangle, black, white, circle above)
+- give diffusion model the image and tuple, then try to generate images based on new tuples
 
+# tuples for each data category:
 
-**later possible**
-- distortion
-- color 
-- rotation
+**no_overlap**
+- (circle, triangle, black, red, separate)
+
+**no_overlap_bw**
+- (circle, triangle, black, black, separate)
+
+**overlap_circle**
+- (circle, triangle, black, red, circle above)
+
+**overlap_circle_bw**
+- (circle, triangle, black, black, circle above)
+
+**overlap_triangle**
+- (circle, triangle, black, red, triangle above)
+
+**overlap_triangle_bw**
+- (circle, triangle, black, black, triangle above)
